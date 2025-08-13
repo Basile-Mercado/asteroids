@@ -46,6 +46,10 @@ def main():
             entity.draw(screen)
             
         for entity in asteroid_group:
+            for shot in shot_group:
+                if entity.is_colliding(shot):
+                    entity.split()
+                    shot.kill()
             if entity.is_colliding(player1):
                 print("Game Over!")
                 pygame.quit()
