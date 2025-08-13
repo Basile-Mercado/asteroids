@@ -40,6 +40,12 @@ def main():
         for entity in drawable_group:
             entity.draw(screen)
             
+        for entity in asteroid_group:
+            if entity.is_colliding(player1):
+                print("Game Over!")
+                pygame.quit()
+                return
+
         pygame.display.flip()
         
         dt = clock.tick(60) / 1000
